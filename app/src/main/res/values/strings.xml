@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">ObjectBoxWorkshop</string>
+    <string name="app_name">Object-Box Workshop</string>
+    <string name="hint_name">Name</string>
+    <string name="hint_age">Age</string>
+    <string name="add_person">Add Person</string>
+    <string name="edit_person">Edit Person</string>
+    <string name="save">Salvar</string>
+    <string name="empty_list">There is no one</string>
 </resources>
