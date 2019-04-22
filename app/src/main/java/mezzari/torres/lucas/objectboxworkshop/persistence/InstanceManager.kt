@@ -32,7 +32,7 @@ object InstanceManager {
     }
 
     fun saveInstances(oClass: Class<*>, oInstance: Any) {
-        val fields: Array<Field> = oClass.fields
+        val fields: Array<Field> = oClass.declaredFields
         for (field in fields) {
             val isAccessible: Boolean = field.isAccessible
             field.isAccessible = true

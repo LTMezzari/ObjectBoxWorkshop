@@ -5,6 +5,7 @@ import kotlinx.android.synthetic.main.activity_filter.*
 import mezzari.torres.lucas.objectboxworkshop.R
 import mezzari.torres.lucas.objectboxworkshop.annotation.LayoutReference
 import mezzari.torres.lucas.objectboxworkshop.generic.BaseActivity
+import mezzari.torres.lucas.objectboxworkshop.model.Person
 import mezzari.torres.lucas.objectboxworkshop.persistence.Wrapper
 
 /**
@@ -27,9 +28,9 @@ class FilterActivity : BaseActivity() {
             val name: String = etName.text.toString()
             val age: Int = if (etAge.text.toString().isEmpty()) 0 else etAge.text.toString().toInt()
 
-            viewModel.filter(id, name, age) {
+            viewModel.filter(id, name, age) { persons ->
                 setResult(Activity.RESULT_OK, object: Wrapper() {
-                    val persons = it
+                    val persons: List<Person> = persons
                 })
                 finish()
             }
