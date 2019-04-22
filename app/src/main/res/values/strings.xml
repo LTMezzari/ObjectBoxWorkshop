@@ -4,6 +4,11 @@
     <string name="hint_age">Age</string>
     <string name="add_person">Add Person</string>
     <string name="edit_person">Edit Person</string>
-    <string name="save">Salvar</string>
+    <string name="action_save">Save</string>
     <string name="empty_list">There is no one</string>
+    <string name="empty_name">The name shouldn`t be empty</string>
+    <string name="invalid_age">The age shouldn`t be less then 0</string>
+    <string name="menu_filter">Filter</string>
+    <string name="action_search">Search</string>
+    <string name="hint_id">Identifier</string>
 </resources>

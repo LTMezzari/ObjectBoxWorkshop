@@ -46,12 +46,25 @@ abstract class BaseActivity: AppCompatActivity() {
         startActivityForResult(activity.java, requestCode, wrapper)
     }
 
+    protected fun startActivityForResult(activity: KClass<*>, requestCode: Int) {
+        startActivityForResult(activity.java, requestCode)
+    }
+
     protected fun startActivityForResult(activity: Class<*>, requestCode: Int, wrapper: Wrapper) {
         InstanceManager.saveInstances(wrapper.javaClass, wrapper)
+        startActivityForResult(activity, requestCode)
+    }
+
+    protected fun startActivityForResult(activity: Class<*>, requestCode: Int) {
         super.startActivityForResult(Intent(this, activity), requestCode)
     }
 
-    protected fun <T>getInstance(key: String, shouldClearInstance: Boolean): T? {
-        return InstanceManager.getInstance(key)
+    protected fun setResult(resultCode: Int, wrapper: Wrapper) {
+        InstanceManager.saveInstances(wrapper.javaClass, wrapper)
+        setResult(resultCode)
+    }
+
+    protected fun <T>getInstance(key: String, shouldClearInstance: Boolean = false): T? {
+        return InstanceManager.getInstance(key, shouldClearInstance)
     }
 }

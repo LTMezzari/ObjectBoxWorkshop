@@ -4,6 +4,7 @@ import android.app.Application
 import io.objectbox.Box
 import io.objectbox.BoxStore
 import mezzari.torres.lucas.objectboxworkshop.model.MyObjectBox
+import java.lang.RuntimeException
 import kotlin.reflect.KClass
 
 /**
@@ -20,9 +21,10 @@ object BoxUtils {
             boxStore = MyObjectBox.builder().androidContext(application).build()
     }
 
-    fun <T>getBox(kClass: KClass<*>): Box<T>? {
-        return boxStore?.let {
-            it.boxFor(kClass.java) as Box<T>
-        }
+    fun <T>getBox(kClass: KClass<*>): Box<T> {
+        if (boxStore == null)
+            throw RuntimeException("You should initialize the BoxUtils")
+
+        return boxStore!!.boxFor(kClass.java) as Box<T>
     }
 }

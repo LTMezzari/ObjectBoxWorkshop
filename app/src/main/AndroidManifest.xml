@@ -3,14 +3,20 @@
           package="mezzari.torres.lucas.objectboxworkshop">
 
     <application
+            android:name=".MyApplication"
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
-            android:name=".MyApplication"
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".flow.main.MainActivity">
+        <activity
+                android:name=".flow.filter.FilterActivity"
+                android:screenOrientation="portrait"
+                android:parentActivityName=".flow.main.MainActivity"/>
+        <activity
+                android:name=".flow.main.MainActivity"
+                android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

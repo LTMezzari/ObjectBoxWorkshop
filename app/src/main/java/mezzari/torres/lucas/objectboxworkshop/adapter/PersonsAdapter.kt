@@ -18,7 +18,9 @@ import mezzari.torres.lucas.objectboxworkshop.model.Person
 class PersonsAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private val inflater: LayoutInflater
-    private val persons: ArrayList<Person>
+    private var persons: ArrayList<Person>
+
+    var onPersonClick: ((Person) -> Unit)? = null
 
     constructor(context: Context): super() {
         this.inflater = LayoutInflater.from(context)
@@ -50,6 +52,10 @@ class PersonsAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 val viewHolder: PersonViewHolder = holder as PersonViewHolder
                 val person: Person = persons[position]
                 viewHolder.itemView.tvName.text = person.name
+
+                viewHolder.itemView.setOnClickListener {
+                    onPersonClick?.invoke(person)
+                }
             }
         }
     }
@@ -58,10 +64,33 @@ class PersonsAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder> {
         return if (persons.isEmpty()) EMPTY_ITEM_VIEW else PERSON_ITEM_VIEW
     }
 
-    fun add(person: Person) {
-        val index = persons.size
-        persons.add(person)
-        notifyItemInserted(index)
+    fun setItems(ps: List<Person>?) {
+        ps?.let { persons ->
+            this.persons = ArrayList(persons)
+            notifyDataSetChanged()
+        }
+    }
+
+    fun add(p: Person?) {
+        p?.let { person ->
+            if (persons.isEmpty()) {
+                persons.add(person)
+                notifyDataSetChanged()
+                return
+            }
+
+            val index = persons.size
+            persons.add(person)
+            notifyItemInserted(index)
+        }
+    }
+
+    fun update(person: Person) {
+        val position = persons.indexOfFirst { p1 -> p1.id == person.id}
+        persons[position] = person
+        if (position != -1) {
+            notifyItemChanged(position)
+        }
     }
 
     private class PersonViewHolder(itemView: View): RecyclerView.ViewHolder(itemView)
