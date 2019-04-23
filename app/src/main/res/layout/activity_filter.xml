@@ -7,36 +7,125 @@
         android:layout_height="match_parent"
         tools:context=".flow.filter.FilterActivity">
 
-    <EditText
-            android:id="@+id/etId"
-            android:layout_width="match_parent"
+    <CheckBox
+            android:id="@+id/cbId"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="@string/hint_id"
+            android:text="@string/hint_id"
+            android:layout_marginTop="32dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:enabled="false"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
     <EditText
-            android:id="@+id/etName"
-            android:layout_width="match_parent"
+            android:id="@+id/etId"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="@string/hint_name"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:inputType="numberSigned"
+            android:hint="@string/hint_id"
+            app:layout_constraintTop_toBottomOf="@id/cbId"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    <CheckBox
+            android:id="@+id/cbName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/hint_name"
+            android:enabled="false"
             app:layout_constraintTop_toBottomOf="@id/etId"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
     <EditText
-            android:id="@+id/etAge"
-            android:layout_width="match_parent"
+            android:id="@+id/etName"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="@string/hint_age"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:hint="@string/hint_name"
+            app:layout_constraintTop_toBottomOf="@id/cbName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    <CheckBox
+            android:id="@+id/cbAge"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/hint_age"
+            android:enabled="false"
             app:layout_constraintTop_toBottomOf="@id/etName"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
+    <EditText
+            android:id="@+id/etAge"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:hint="@string/hint_age"
+            android:inputType="numberSigned"
+            app:layout_constraintTop_toBottomOf="@id/cbAge"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    <CheckBox
+            android:id="@+id/cbPeriod"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/hint_period"
+            android:enabled="false"
+            app:layout_constraintTop_toBottomOf="@id/etAge"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    <EditText
+            android:id="@+id/etPeriodStart"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="8dp"
+            android:hint="@string/hint_period_start"
+            android:inputType="numberSigned"
+            app:layout_constraintTop_toBottomOf="@id/cbPeriod"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/etPeriodEnd"/>
+
+    <EditText
+            android:id="@+id/etPeriodEnd"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp"
+            android:hint="@string/hint_period_end"
+            android:inputType="numberSigned"
+            app:layout_constraintTop_toBottomOf="@id/cbPeriod"
+            app:layout_constraintStart_toEndOf="@id/etPeriodStart"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
     <Button
             android:id="@+id/btnFilter"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/action_search"
             app:layout_constraintStart_toStartOf="parent"

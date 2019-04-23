@@ -16,6 +16,8 @@ object BoxUtils {
 
     private var boxStore: BoxStore? = null
 
+    inline fun <reified T> getBox() = getBox<T>(T::class)
+
     fun initialize(application: Application) {
         if (boxStore == null)
             boxStore = MyObjectBox.builder().androidContext(application).build()
@@ -25,6 +27,6 @@ object BoxUtils {
         if (boxStore == null)
             throw RuntimeException("You should initialize the BoxUtils")
 
-        return boxStore!!.boxFor(kClass.java) as Box<T>
+        return boxStore?.boxFor(kClass.java) as Box<T>
     }
 }

@@ -1,6 +1,7 @@
 package mezzari.torres.lucas.objectboxworkshop.persistence
 
 import java.lang.reflect.Field
+import kotlin.reflect.KClass
 
 /**
  * @author Lucas T. Mezzari
@@ -29,6 +30,10 @@ object InstanceManager {
 
     fun clearInstances() {
         InstanceHolder.holder.clear()
+    }
+
+    fun saveInstances(oClass: KClass<*>, oInstance: Any) {
+        saveInstances(oClass.java, oInstance)
     }
 
     fun saveInstances(oClass: Class<*>, oInstance: Any) {

@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools">
     <item
             android:id="@+id/filter"
             android:title="@string/menu_filter"
             android:icon="@drawable/ic_filter_list_black_24dp"
-            app:showAsAction="always"/>
+            app:showAsAction="ifRoom"/>
+    <item
+            android:id="@+id/close"
+            android:title="@string/menu_close"
+            android:icon="@drawable/ic_close_black_24dp"
+            app:showAsAction="ifRoom"
+            android:visible="false"/>
 </menu>

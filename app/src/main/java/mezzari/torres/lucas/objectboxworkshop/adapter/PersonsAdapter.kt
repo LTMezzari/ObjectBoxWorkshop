@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import kotlinx.android.synthetic.main.row_empty_items.view.*
 import kotlinx.android.synthetic.main.row_person.view.*
 import mezzari.torres.lucas.objectboxworkshop.R
+import mezzari.torres.lucas.objectboxworkshop.archives.OnClickListener
 import mezzari.torres.lucas.objectboxworkshop.model.Person
 
 /**
@@ -20,7 +21,7 @@ class PersonsAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private val inflater: LayoutInflater
     private var persons: ArrayList<Person>
 
-    var onPersonClick: ((Person) -> Unit)? = null
+    var onPersonClick: OnClickListener? = null
 
     constructor(context: Context): super() {
         this.inflater = LayoutInflater.from(context)

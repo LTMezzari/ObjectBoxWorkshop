@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import mezzari.torres.lucas.objectboxworkshop.annotation.LayoutReference
+import mezzari.torres.lucas.objectboxworkshop.persistence.InstanceHolder
 import mezzari.torres.lucas.objectboxworkshop.persistence.InstanceManager
 import mezzari.torres.lucas.objectboxworkshop.persistence.Wrapper
 import java.lang.RuntimeException
@@ -17,7 +18,9 @@ import kotlin.reflect.KClass
  */
 abstract class BaseActivity: AppCompatActivity() {
 
-    lateinit var rootView: View
+    protected val rootView: View by lazy {
+        window.decorView.rootView
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,8 +28,6 @@ abstract class BaseActivity: AppCompatActivity() {
         layoutReference?.let {
             setContentView(layoutReference.value)
         } ?: throw RuntimeException("The activity should contain a LayoutReference annotation")
-
-        rootView = window.decorView.rootView
 
         onInitValues()
     }
@@ -38,7 +39,7 @@ abstract class BaseActivity: AppCompatActivity() {
     }
 
     protected fun startActivity(activity: Class<*>, wrapper: Wrapper) {
-        InstanceManager.saveInstances(wrapper.javaClass, wrapper)
+        InstanceManager.saveInstances(wrapper::class, wrapper)
         super.startActivity(Intent(this, activity))
     }
 
@@ -51,7 +52,7 @@ abstract class BaseActivity: AppCompatActivity() {
     }
 
     protected fun startActivityForResult(activity: Class<*>, requestCode: Int, wrapper: Wrapper) {
-        InstanceManager.saveInstances(wrapper.javaClass, wrapper)
+        InstanceManager.saveInstances(wrapper::class, wrapper)
         startActivityForResult(activity, requestCode)
     }
 
@@ -60,7 +61,7 @@ abstract class BaseActivity: AppCompatActivity() {
     }
 
     protected fun setResult(resultCode: Int, wrapper: Wrapper) {
-        InstanceManager.saveInstances(wrapper.javaClass, wrapper)
+        InstanceManager.saveInstances(wrapper::class, wrapper)
         setResult(resultCode)
     }
 

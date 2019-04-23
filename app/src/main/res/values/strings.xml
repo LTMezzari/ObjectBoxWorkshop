@@ -11,4 +11,8 @@
     <string name="menu_filter">Filter</string>
     <string name="action_search">Search</string>
     <string name="hint_id">Identifier</string>
+    <string name="hint_period">Period</string>
+    <string name="hint_period_start">Start</string>
+    <string name="hint_period_end">End</string>
+    <string name="menu_close">Close</string>
 </resources>

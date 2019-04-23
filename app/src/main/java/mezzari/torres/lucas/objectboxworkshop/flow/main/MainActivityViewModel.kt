@@ -13,7 +13,7 @@ import mezzari.torres.lucas.objectboxworkshop.util.BoxUtils
  */
 class MainActivityViewModel {
 
-    private val personsBox: Box<Person> by lazy { BoxUtils.getBox<Person>(Person::class) }
+    private val personsBox: Box<Person> by lazy { BoxUtils.getBox<Person>() }
 
     val errorMessage: MutableLiveData<String> = MutableLiveData()
     val errorId: MutableLiveData<Int> = MutableLiveData()

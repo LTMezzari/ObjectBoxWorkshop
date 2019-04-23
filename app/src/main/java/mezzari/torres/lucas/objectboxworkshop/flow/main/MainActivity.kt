@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 import mezzari.torres.lucas.objectboxworkshop.R
@@ -32,6 +33,7 @@ class MainActivity : BaseActivity() {
     }
 
     private var isEditing = false
+    private var menu: Menu? = null
 
     override fun onInitValues() {
 
@@ -61,6 +63,7 @@ class MainActivity : BaseActivity() {
         btnSave.setOnClickListener {
             viewModel.savePerson(etName.text.toString(), etAge.text.toString().toInt(), isEditing) { person ->
                 if (isEditing) {
+                    tvTitle.setText(R.string.add_person)
                     isEditing = false
                     etName.text = null
                     etAge.text = null
@@ -79,6 +82,7 @@ class MainActivity : BaseActivity() {
         when (requestCode) {
             FILTER_REQUEST -> {
                 if (resultCode == Activity.RESULT_OK) {
+                    handleMenu(true)
                     adapter.setItems(getInstance("persons"))
                 }
             }
@@ -91,6 +95,7 @@ class MainActivity : BaseActivity() {
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val inflater: MenuInflater = menuInflater
         inflater.inflate(R.menu.toolbar, menu)
+        this.menu = menu
         return true
     }
 
@@ -100,10 +105,20 @@ class MainActivity : BaseActivity() {
                 startActivityForResult(FilterActivity::class, FILTER_REQUEST)
                 return true
             }
+            R.id.close -> {
+                handleMenu(false)
+                adapter.setItems(viewModel.getPersons())
+                return true
+            }
             else -> {
                 return super.onOptionsItemSelected(item)
             }
         }
+    }
+
+    private fun handleMenu(isFiltering: Boolean) {
+        menu?.findItem(R.id.close)?.isVisible = isFiltering
+        menu?.findItem(R.id.filter)?.isVisible = !isFiltering
     }
 
     companion object {
