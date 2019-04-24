@@ -1,7 +1,6 @@
 package mezzari.torres.lucas.objectboxworkshop
 
 import android.app.Application
-import mezzari.torres.lucas.objectboxworkshop.util.BoxUtils
 
 /**
  * @author Lucas T. Mezzari
@@ -11,7 +10,6 @@ import mezzari.torres.lucas.objectboxworkshop.util.BoxUtils
 class MyApplication: Application() {
     override fun onCreate() {
         super.onCreate()
-        //Initialize the box utils
-        BoxUtils.initialize(this)
+        //TODO: Initialize the box utils
     }
 }

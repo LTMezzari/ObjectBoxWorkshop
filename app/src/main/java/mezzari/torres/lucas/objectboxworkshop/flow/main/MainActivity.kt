@@ -72,8 +72,8 @@ class MainActivity : BaseActivity() {
         //Set the adapter to the recycler
         rvItems.adapter = adapter
 
-        //Set the adapter items
-        adapter.setItems(viewModel.getPersons())
+        //TODO: Set the adapter items
+
 
         //Set the save button click listener
         btnSave.setOnClickListener {
@@ -154,8 +154,8 @@ class MainActivity : BaseActivity() {
             R.id.close -> {
                 //Handle the menu
                 handleFilterMenuItem(false)
-                //Set the saved items from the box to the adapter
-                adapter.setItems(viewModel.getPersons())
+                //TODO: Set the saved items from the box to the adapter
+
                 //return true
                 return true
             }

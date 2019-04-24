@@ -96,15 +96,16 @@ class FilterActivity : BaseActivity(), CompoundButton.OnCheckedChangeListener {
             val periodEnd: Int = if (etPeriodEnd.text.toString().isEmpty()) 0 else etPeriodEnd.text.toString().toInt()
 
             //Call the filter method of the view model
-            viewModel.filter(id, name, age, periodStart, periodEnd) { persons ->
-                //When the method succeeds
-                //Set the result to ok, and wrap the list of persons filtered
-                setResult(Activity.RESULT_OK, object: Wrapper() {
-                    val persons: List<Person> = persons
-                })
-                //Finish the activity
-                finish()
-            }
+            //TODO: uncomment
+//            viewModel.filter(id, name, age, periodStart, periodEnd) { persons ->
+//                //When the method succeeds
+//                //Set the result to ok, and wrap the list of persons filtered
+//                setResult(Activity.RESULT_OK, object: Wrapper() {
+//                    val persons: List<Person> = persons
+//                })
+//                //Finish the activity
+//                finish()
+//            }
         }
     }
 

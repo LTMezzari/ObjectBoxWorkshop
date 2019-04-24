@@ -1,10 +1,8 @@
 package mezzari.torres.lucas.objectboxworkshop.flow.main
 
 import android.arch.lifecycle.MutableLiveData
-import io.objectbox.Box
 import mezzari.torres.lucas.objectboxworkshop.R
 import mezzari.torres.lucas.objectboxworkshop.model.Person
-import mezzari.torres.lucas.objectboxworkshop.util.BoxUtils
 
 /**
  * @author Lucas T. Mezzari
@@ -13,23 +11,14 @@ import mezzari.torres.lucas.objectboxworkshop.util.BoxUtils
  */
 class MainActivityViewModel {
 
-    //Declares a lazy persons box
-    private val personsBox: Box<Person> by lazy { BoxUtils.getBox<Person>() }
+    //TODO: Declares a lazy persons box
 
     //Declares a mutable constant to deal with error messages
     val errorId: MutableLiveData<Int> = MutableLiveData()
     //Declares a variable to hold the edited person id
     var personId: Long = 0
 
-    /**
-     * Method that get the persons from the database
-     *
-     * @return All persons from the database
-     */
-    fun getPersons(): List<Person> {
-        //Return the persons
-        return personsBox.all
-    }
+    //TODO: getPersons
 
     /**
      * Method that save the person to the database
@@ -61,9 +50,8 @@ class MainActivityViewModel {
                         this.id = personId
                 }
 
-                //Put the object in the database
+                //TODO: Put the object in the database
                 //If the person`s id is set in the database, it will update
-                personsBox.put(person)
 
                 //Invoke the success closure
                 success(person)
@@ -79,8 +67,7 @@ class MainActivityViewModel {
     fun deletePersons(persons: List<Person>) {
         //Verify if the list is not empty
         if (persons.isNotEmpty()){
-            //Remove the items from the box
-            personsBox.remove(persons)
+            //TODO: Remove the items from the box
         }
     }
 }
