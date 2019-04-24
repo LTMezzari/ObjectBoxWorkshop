@@ -11,6 +11,7 @@ import mezzari.torres.lucas.objectboxworkshop.util.BoxUtils
 class MyApplication: Application() {
     override fun onCreate() {
         super.onCreate()
+        //Initialize the box utils
         BoxUtils.initialize(this)
     }
 }

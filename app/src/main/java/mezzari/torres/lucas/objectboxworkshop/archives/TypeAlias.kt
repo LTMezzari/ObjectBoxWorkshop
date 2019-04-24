@@ -8,4 +8,12 @@ import mezzari.torres.lucas.objectboxworkshop.model.Person
  * @since 23/04/19
  */
 
-typealias OnClickListener = ((Person) -> Unit)
+/**
+ * Type Alias for the adapter onPersonClick closure
+ */
+typealias OnPersonClickListener = ((Person) -> Unit)
+
+/**
+ * Type Alias for the adapter OnPersonCheckedChange closure
+ */
+typealias OnPersonCheckedChangeListener = ((isInSelectionMode: Boolean) -> Unit)

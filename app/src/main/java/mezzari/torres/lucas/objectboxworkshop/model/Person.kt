@@ -7,6 +7,8 @@ import io.objectbox.annotation.Id
  * @author Lucas T. Mezzari
  * @author lucas.mezzari@operacao.rcadigital.com.br
  * @since 18/04/19
+ *
+ * Class that declares the Entity Person
  */
 @Entity
 class Person {
@@ -17,4 +19,6 @@ class Person {
     var name: String? = null
 
     var age: Int = 0
+
+    var isChecked: Boolean = false
 }
