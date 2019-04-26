@@ -19,10 +19,6 @@
         {
           "id": "3:1574055859104363126",
           "name": "age"
-        },
-        {
-          "id": "4:3002096521845046705",
-          "name": "isChecked"
         }
       ],
       "relations": []
@@ -36,7 +32,9 @@
   "modelVersionParserMinimum": 4,
   "retiredEntityUids": [],
   "retiredIndexUids": [],
-  "retiredPropertyUids": [],
+  "retiredPropertyUids": [
+    3002096521845046705
+  ],
   "retiredRelationUids": [],
   "version": 1
 }
